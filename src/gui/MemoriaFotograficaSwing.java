@@ -94,6 +94,7 @@ public class MemoriaFotograficaSwing extends JFrame {
 												lblImagem.setIcon(new ImageIcon(diretorio+"/"+nomeDaImagem));
 												//System.out.println("Caminho: " + diretorio+"/"+nomeDaImagem);
 											}
+											
 										}
 								} catch (InterruptedException e) {
 									e.printStackTrace();
