@@ -30,7 +30,7 @@ public class MemoriaFotograficaSwing extends JFrame {
 	private JLabel lblImagem;
 	private JTextField txtLocal;
 	
-	private static final String RAIZ = "/dc/";
+	private static String diretorio = "";
 
 	/**
 	 * Launch the application.
@@ -74,22 +74,25 @@ public class MemoriaFotograficaSwing extends JFrame {
 		btnIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SwingWorker<Void, Integer> worker = new SwingWorker<Void, Integer>() {
-// /home/claudio/workspaces/workspaces-eclipse/workspace-java-se/MemoriaFotografica/src/dc
+
 					@Override
 					protected Void doInBackground() throws Exception {
 						List<String> listaDeNomes = new ArrayList<>();
-						File file = new File(txtLocal.getText());
+						diretorio = txtLocal.getText();
+						File file = new File(diretorio);
 						listaDeNomes.addAll(Arrays.asList(file.list()));
 						listaDeNomes.forEach(
 							nomeDaImagem -> {
 								try {
 										Thread.sleep( (1 * 1000) ); // 1 segundos.
 										{
-											for (int i = 0; i < 500; i++) { // Pisca 100 vezes.
-												Thread.sleep(70); // Adiciona um fundo branco a cada 1/10 de segundo.
+											for (int i = 0; i < 350; i++) { // Pisca 350 vezes.
+												Thread.sleep(70); // Adiciona um fundo branco a cada 7/100 de segundo.
 												lblImagem.setIcon(new ImageIcon(MemoriaFotograficaSwing.class.getResource("/assets/fundo_branco.png")));
-												Thread.sleep(70); // Adiciona uma imagem a cada 1/10 de segundo.
-												lblImagem.setIcon(new ImageIcon(MemoriaFotograficaSwing.class.getResource(RAIZ+nomeDaImagem)));
+												Thread.sleep(70); // Adiciona uma imagem a cada 7/100 de segundo.
+												//lblImagem.setIcon(new ImageIcon(MemoriaFotograficaSwing.class.getResource(RAIZ+nomeDaImagem)));
+												lblImagem.setIcon(new ImageIcon(diretorio+"/"+nomeDaImagem));
+												//System.out.println("Caminho: " + diretorio+"/"+nomeDaImagem);
 											}
 										}
 								} catch (InterruptedException e) {
