@@ -86,7 +86,7 @@ public class MemoriaFotograficaSwing extends JFrame {
 								try {
 										Thread.sleep( (1 * 1000) ); // 1 segundos.
 										{
-											for (int i = 0; i < 350; i++) { // Pisca 350 vezes.
+											for (int i = 0; i < 400; i++) { // Pisca 400 vezes.
 												Thread.sleep(70); // Adiciona um fundo branco a cada 7/100 de segundo.
 												lblImagem.setIcon(new ImageIcon(MemoriaFotograficaSwing.class.getResource("/assets/fundo_branco.png")));
 												Thread.sleep(70); // Adiciona uma imagem a cada 7/100 de segundo.
